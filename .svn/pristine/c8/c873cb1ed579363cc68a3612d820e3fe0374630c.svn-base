@@ -1,0 +1,48 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>申请列表</title>
+</head>
+<body>
+   <spring:url value="/user/login2" var="login" />
+   <a href="${login}">不要点</a>
+   <c:if test="${!empty applyHostList}">
+      <table>
+         <tr>
+         canine equine acquiline feline simian ursine
+            <th>FormID</th>
+            <th>搜索Key值</th>
+            <th>Name</th>
+            <th>职业</th>
+            <th>手机</th>
+            <th>邮箱</th>
+            <th>地址</th>
+            <th>申请状态</th>
+         </tr>
+         <c:forEach items="${applyHostList}" var="applyHost">
+            <tr>
+               <td align="center"><c:out value="${applyHost.hostFormId}" /></td>
+               <td align="center"><c:out value="${applyHost.keyValue}" /></td>
+               <td align="center"><c:out value="${applyHost.firstName} ${applyHost.lastName}" /></td>
+               <td align="center"><c:out value="${applyHost.occupation}" /></td>
+               <td align="center"><c:out value="${applyHost.cellphone}" /></td>
+               <td align="center"><c:out value="${applyHost.email}" /></td>
+               <td align="center"><c:out value="${applyHost.address}, ${applyHost.city}, ${applyHost.state}, ${applyHost.zipCode}" /></td>
+               <td align="center"><c:out value="${applyHost.hostFormRole}" /></td>
+               <td>
+                  <!-- <a href="<c:url value='/form/edit/${applyHost.hostFormId}'/>">Edit</a> -->
+                  
+                  <a href="<c:url value='/form/details/${applyHost.hostFormId}'/>">Details</a>          
+               </td>
+            </tr>
+         </c:forEach>
+      </table>
+   </c:if>
+</body>
+</html>

@@ -1,0 +1,229 @@
+package com.ease.controller;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
+import com.ease.model.Dataset;
+import com.ease.model.User;
+import com.ease.servic.UserServic;
+import com.ease.servic.UserTestServic;
+
+import org.json.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.quartz.SchedulerFactoryBean;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+
+@Controller
+@RequestMapping("/user")
+public class UserController {
+
+	@Autowired
+	UserServic userService;
+	@Autowired
+	private SchedulerFactoryBean schedulerFactory;
+	
+	@RequestMapping(value="/register",method=RequestMethod.GET) 
+	public String register(Map<String,Object> map){
+		map.put("user", new User());
+		return "/user/register";
+	}
+	
+	/*@RequestMapping(value="/create",method=RequestMethod.POST) 
+	public String create(@Valid @ModelAttribute("user") User user, BindingResult result,Map<String,Object> map){
+		userService.create(user);
+		return "redirect:/user/details/" + user.getUserId();
+	}*/
+	
+	@RequestMapping(value = "/details/{userId}",method=RequestMethod.GET)
+	public String details(@PathVariable("userId") Long userId,Map<String,Object> map){
+		User user = userService.find(userId);
+		map.put("Username", user.getUsername());
+		map.put("Email", user.getEmail());
+		map.put("Password", user.getPassword());
+		return "user/details";
+	}
+	
+	@RequestMapping(value="/list",method=RequestMethod.GET)
+	public String list(Map<String,Object> map){
+		map.put("userList", userService.getAll());
+		return "user/list";
+	}
+	
+	@RequestMapping(value="/edit/{userId}",method=RequestMethod.GET)
+	public String edit(@PathVariable("userId") Long userId, Map<String,Object> map){
+		User user = userService.find(userId);
+		map.put("user", user);
+		return "user/edit";
+	}
+	
+	@RequestMapping(value="/update",method=RequestMethod.POST)
+	public String update(User user, Map<String,Object> map){
+		userService.update(user);
+		return "redirect:/user/details/" + user.getUserId();
+	}
+	
+	@RequestMapping(value="/delete/{userId}",method=RequestMethod.GET)
+	public String delete(@PathVariable("userId") Long userId, Map<String,Object> map){
+		userService.delete(userId);
+		return "redirect:/user/list";
+	}
+	
+		
+	/******************************************************************/
+	@RequestMapping(method=RequestMethod.GET,value="/hello22index")//第一步访问hello2页面
+    public String index2() {		
+		return "user/hello2";
+	}
+	
+	
+	@RequestMapping(value="/hello22",method={RequestMethod.GET,RequestMethod.POST})//第二步前台发送ajax请求调用此方法并返回json数据
+	  public @ResponseBody Dataset jsonSource(@RequestBody User user){
+		//Gson gs = new  Gson();
+        //Map<String,String> map = gs.fromJson(user, Map.class);
+		//User user1 = gs.fromJson(user, User.class);
+		//user1.setEmail(map.get("username"));
+		//user1.setUsername(map.get("email"));
+		//user1.setPassword(map.get("password"));
+		
+		List<User> users = userService.getAll();
+		for(int i = 0; i < users.size(); i++){
+			User useri = users.get(i);
+			if(useri.getUsername().equals(user.getUsername())){
+				//set return status
+				Dataset dataset=new Dataset();
+				dataset.resultCode="400";
+				dataset.msg="注册失败,用户名重复";
+				dataset.data.add(user);
+				return dataset;
+			}
+		}
+		
+		
+		//set value 0 in RoleId
+		user.setRoleId("0");
+		
+		//set value in keyValue with random number
+		Date date = new Date();
+		Long m=date.getTime();
+		Double time=Math.random()*1000;
+		long l = new Double(time).longValue();
+		System.out.println(m+l);
+		user.setKeyValue(m+l);
+		
+		//create user object
+		userService.create(user);
+		
+		//set return status
+		Dataset dataset=new Dataset();
+		dataset.resultCode="200";
+		dataset.msg="注册成功";
+		dataset.data.add(user);
+
+		return dataset;
+		
+	}
+	
+	/**------------------------------------------------------------**/
+	@RequestMapping(value="/{userId}",method=RequestMethod.GET)
+	public @ResponseBody User getUserInJson(@PathVariable("userId") Long userId){
+		return  userService.find(userId);
+	}
+	
+	/******************************************************************/
+	@RequestMapping(value="/login",method=RequestMethod.GET) 
+	public String login1(Map<String,Object> map){
+		map.put("user", new User());
+		return "/user/login";
+	}
+	
+	@RequestMapping(value="/check",method=RequestMethod.POST)
+	public String login(HttpSession session,@RequestParam("admin") String admin,@RequestParam("pass") String pass) throws InterruptedException{
+		if(admin.equals("gotoease")&&pass.equals("EASE1234ease")){
+			session.setAttribute("admin", admin);
+			session.setAttribute("pass", pass);
+			
+			return "redirect:/user/menu";
+		}
+		return "/user/login";
+	}
+	
+
+	@RequestMapping(value="/logout ")
+	public String logout(HttpSession session) throws Exception{
+		session.invalidate();
+		return "redirect:/user/login";
+	}
+	
+	/*普通用户登陆页面*/
+	@RequestMapping(value="/login2",method=RequestMethod.GET) 
+	public String login2(Map<String,Object> map){
+		return "user/login2";
+	}
+	
+	@RequestMapping(value="/check2",method=RequestMethod.POST)
+	public @ResponseBody Dataset check2(@RequestBody User user){
+		
+		List<User> users = userService.getAll();
+		String rn1 = user.getUsername();
+		String rn2 = user.getPassword();
+		for(int i = 0; i < users.size(); i++){
+			User useri = users.get(i);
+			String in1 = useri.getUsername();
+			String in2 = useri.getPassword();
+			if(in1.equals(rn1)){
+				if(in2.equals(rn2)){
+					//set return status
+					Dataset dataset=new Dataset();
+					dataset.resultCode="200";
+					dataset.msg="登录成功";
+					dataset.data.add(user);
+					return dataset;
+				}
+			}
+		}
+		
+		//set return status
+		Dataset dataset=new Dataset();
+		dataset.resultCode="400";
+		dataset.msg="登录失败，登录密码和用户名不正确";
+		dataset.data.add(user);
+		
+		return dataset;
+
+	}
+
+	@RequestMapping(value="/menu",method=RequestMethod.GET)
+	public String menu(Map<String,Object> map){
+		schedulerFactory.start();
+		return "/user/menu";
+	}
+	
+	
+	
+	//用户申请
+	@Autowired
+	UserTestServic userTestService;
+	
+	//@RequestMapping(value="/apply",method=RequestMethod.GET)
+	//public void apply(Map<String,Object> map){
+		
+		
+		//map.put("userList",userTestService.findRole());
+		
+//	}
+	
+	
+	
+}

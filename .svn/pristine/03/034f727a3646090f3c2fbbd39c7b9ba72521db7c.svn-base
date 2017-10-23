@@ -1,0 +1,52 @@
+package com.ease.service.impl;
+
+import java.util.List;
+
+import com.ease.doa.UserTestDao;
+import com.ease.model.UserTest;
+import com.ease.servic.UserTestServic;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service("userTestService")
+@Transactional(rollbackFor = Exception.class)
+public class UserTestServiceImpl implements UserTestServic{
+
+	@Autowired
+	UserTestDao userTestDao;
+	@Override
+	public void create(UserTest user) {
+		userTestDao.create(user);
+	}
+
+	@Override
+	public void update(UserTest user) {
+		userTestDao.update(user);
+	}
+
+	@Override
+	public UserTest edit(Long userId) {
+		return userTestDao.edit(userId);
+	}
+
+	@Override
+	public void delete(Long userId) {
+		userTestDao.delete(userId);
+	}
+
+	@Override
+	public UserTest find(Long userId) {
+		return userTestDao.find(userId);
+	}
+
+	@Override
+	public List<UserTest> getAll() {
+		return userTestDao.getAll();
+	}
+
+	public List<UserTest> findRole(){
+		return userTestDao.findRole();
+	}
+}

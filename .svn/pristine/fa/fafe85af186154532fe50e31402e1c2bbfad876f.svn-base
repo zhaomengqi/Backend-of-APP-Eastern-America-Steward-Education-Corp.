@@ -1,0 +1,375 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>住家申请详情</title>
+</head>
+<body>
+   <spring:url value="/user/apply" var="list" />
+   <a href="${list}">List</a>
+   <table>
+         <tr>
+            <td>HostFormId: </td>
+            <td>${HostFormId}</td>
+         </tr>
+         
+         <tr>
+            <td>KeyValue: </td>
+            <td>${KeyValue}</td>
+         </tr>
+         
+        <tr>
+            <td>HostFormRole: </td>
+            <td>${HostFormRole}</td>
+         </tr>
+         
+          <tr>
+            <td></br><h2>个人信息</h2></td>
+         </tr>
+         
+         <tr>
+            <td>FirstName: </td>
+            <td>${FirstName}</td>
+         </tr>
+      
+         <tr>
+            <td>MiddleName: </td>
+            <td>${MiddleName}</td>
+         </tr>
+         
+          <tr>
+            <td>LastName: </td>
+            <td>${LastName}</td>
+         </tr>
+         
+          <tr>
+            <td>称谓: </td>
+            <td>${Title}</td>
+         </tr>
+         
+          <tr>
+            <td>年龄: </td>
+            <td>${Age}</td>
+         </tr>
+         
+          <tr>
+            <td>婚姻状况: </td>
+            <td>${MaritalStatus}</td>
+         </tr>
+         
+          <tr>
+            <td>职业: </td>
+            <td>${Occupation}</td>
+         </tr>
+         
+         <tr>
+            <td>手机: </td>
+            <td>${Cellphone}</td>
+         </tr>
+         
+         <tr>
+            <td>邮箱: </td>
+            <td>${Email}</td>
+         </tr>
+                
+         <tr>
+            <td>Host自我介绍: </td>
+            <td>${Introducation}</td>
+         </tr>
+
+       <tr>
+            <td>通过什么方式了解到我们: </td>
+            <td>${WayOfService}</td>
+         </tr>  
+         
+          <tr>
+            <td></br></br><h2>房屋信息</h2></td>
+         </tr>    
+            
+          <tr>
+            <td>Country: </td>
+            <td>${Country}</td>
+         </tr>
+         
+         <tr>
+            <td>Address: </td>
+            <td>${Address}</td>
+         </tr>
+         
+         <tr>
+            <td>City: </td>
+            <td>${City}</td>
+         </tr>
+         
+         <tr>
+            <td>State: </td>
+            <td>${State}</td>
+         </tr>
+         
+         <tr>
+            <td>ZipCode: </td>
+            <td>${ZipCode}</td>
+         </tr>
+ 
+         <tr>
+            <td>倾向接待的学生性别: </td>
+            <td>${Preferhost}</td>
+         </tr>
+         
+         <tr>
+            <td>宗教信仰: </td>
+            <td>${Religious}</td>
+         </tr>
+         
+         <tr>
+            <td>家里养的宠物: </td>
+            <td>${Pets}</td>
+         </tr>       
+         
+         <tr>
+            <td>附近是否有医院: </td>
+            <td>${Hosptial}</td>
+         </tr>
+         
+         <tr>
+            <td>附近是否有超市: </td>
+            <td>${Supermarket}</td>
+         </tr>
+         
+         <tr>
+            <td>附近是否有地铁站： </td>
+            <td>${SubwayStation}</td>
+         </tr>
+         
+         <tr>
+            <td>附近是否有公交站: </td>
+            <td>${BusStation}</td>
+         </tr>
+         
+         <tr>
+            <td>附近是否有高中: </td>
+            <td>${Highschool}</td>
+         </tr>
+         
+         <tr>
+            <td>附近是否有大学: </td>
+            <td>${University}</td>
+         </tr>       
+         
+          <tr>
+            <td></br></br><h2>房东及房屋照片</h2></td>
+         </tr>
+         
+           <tr>
+            <td>自拍照片: </td>
+            <td>${PersonPicture}</td>
+         </tr>
+         
+         <tr>
+            <td>客厅照片: </td>
+            <td>${Drawingroom}</td>
+         </tr>
+         
+         <tr>
+            <td>厨房照片: </td>
+            <td>${KitchenPicture}</td>
+         </tr>
+         
+          <tr>
+            <td>卫生间照片: </td>
+            <td>${BothroomPicture}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一照片: </td>
+            <td>${BedroomPicture1_1}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一照片: </td>
+            <td>${BedroomPicture1_2}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一短期StartTime: </td>
+            <td>${P1ShortTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一短期EndTime: </td>
+            <td>${P1ShortTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一长期StartTime: </td>
+            <td>${P1LongTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室一长期EndTime: </td>
+            <td>${P1LongTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二照片: </td>
+            <td>${BedroomPicture2_1}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二照片: </td>
+            <td>${BedroomPicture2_2}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二短期StartTime: </td>
+            <td>${P2ShortTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二短期EndTime: </td>
+            <td>${P2ShortTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二长期StartTime: </td>
+            <td>${P2LongTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室二长期EndTime: </td>
+            <td>${P2LongTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三照片: </td>
+            <td>${BedroomPicture3_1}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三照片: </td>
+            <td>${BedroomPicture3_2}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三短期StartTime: </td>
+            <td>${P3ShortTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三短期EndTime: </td>
+            <td>${P3ShortTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三长期StartTime: </td>
+            <td>${P3LongTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室三长期EndTime: </td>
+            <td>${P3LongTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四照片: </td>
+            <td>${BedroomPicture4_1}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四照片: </td>
+            <td>${BedroomPicture4_2}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四短期StartTime: </td>
+            <td>${P4ShortTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四短期EndTime: </td>
+            <td>${P4ShortTermLeftTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四长期StartTime: </td>
+            <td>${P4LongTermStartTime}</td>
+         </tr>
+         
+         <tr>
+            <td>卧室四长期EndTime: </td>
+            <td>${P4LongTermLeftTime}</td>
+         </tr>
+        
+          <tr>
+         <td></br></br><h2>家庭成员信息</h2></td>
+         </tr>
+         <tr>
+            <td>家庭成员1名字: </td>
+            <td>${FamilyMember1}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员1年龄: </td>
+            <td>${Age1}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员1性别: </td>
+            <td>${Sex1}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员1职业: </td>
+            <td>${Occupation1}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员2名字: </td>
+            <td>${FamilyMember2}</td>
+         </tr>
+       
+       <tr>
+            <td>家庭成员2年龄: </td>
+            <td>${Age2}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员2性别: </td>
+            <td>${Sex2}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员2职业: </td>
+            <td>${Occupation2}</td>
+         </tr>
+       
+         <tr>
+            <td>家庭成员3名字: </td>
+            <td>${FamilyMember3}</td>
+         </tr>
+       
+       <tr>
+            <td>家庭成员3年龄: </td>
+            <td>${Age3}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员3性别: </td>
+            <td>${Sex3}</td>
+         </tr>
+         
+         <tr>
+            <td>家庭成员3职业: </td>
+            <td>${Occupation3}</td>
+         </tr>
+         </table>
+         
+         <h3><a href="<c:url value='/form/reject/${HostFormId}'/>">拒绝</a></h3>
+         <h3><a href="<c:url value='/form/authorize/${HostFormId}'/>">通过</a></h3>
+</body>
+</html>

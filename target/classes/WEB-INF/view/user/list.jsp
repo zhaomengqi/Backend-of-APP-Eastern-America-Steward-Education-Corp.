@@ -1,0 +1,45 @@
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<script src="<%=request.getContextPath()%>/Resource/JQuery/jquery-3.2.0.min.js"></script>
+<script src="<%=request.getContextPath()%>/Resource/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/Resource/css/bootstrap.min.css"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>所有用户</title>
+</head>
+<body>
+   <spring:url value="/user/login2" var="login" />
+   <a href="${login}">普通登录</a>
+   <c:if test="${!empty userList}">
+      <table>
+         <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th>RoleId</th>
+         </tr>
+         <c:forEach items="${userList}" var="user">
+            <tr>
+               <td><c:out value="${user.userId}" /></td>
+               <td><c:out value="${user.username}" /></td>
+               <td><c:out value="${user.email}" /></td>
+               <td><c:out value="${user.password}" /></td>
+               <td><c:out value="${user.roleId}" /></td>
+               <td>
+                  <a href="<c:url value='/user/edit/${user.userId}'/>">Edit</a>
+                  <a href="<c:url value='/user/delete/${user.userId}'/>">Delete</a>
+                  <a href="<c:url value='/user/details/${user.userId}'/>">Details</a>          
+               </td>
+            </tr>
+         </c:forEach>
+      </table>
+   </c:if>
+</body>
+</html>

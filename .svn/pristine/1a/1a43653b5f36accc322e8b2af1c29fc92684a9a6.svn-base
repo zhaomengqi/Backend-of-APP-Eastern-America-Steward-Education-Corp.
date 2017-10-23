@@ -1,0 +1,86 @@
+package com.ease.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+@Entity
+public class User {
+	
+	private String Status;
+	public String getStatus() {
+		return Status;
+	}
+	public void setStatus(String status) {
+		Status = status;
+	}
+
+	@Id
+	@GeneratedValue
+	private Long UserId;
+	
+	@Size(min=2,max=50)
+	private String Username;
+	
+	@Size(min=3,max=50)
+	private String Email;
+	
+	@Size(min=2,max=50)
+	private String Password;
+
+	private Long keyValue;
+	public Long getKeyValue() {
+		return keyValue;
+	}
+	public void setKeyValue(Long keyValue) {
+		this.keyValue = keyValue;
+	}
+
+
+	@Column(name="RoleId",columnDefinition="varchar(50) default 0")
+	private String RoleId;
+	
+
+	public Long getUserId() {
+		return UserId;
+	}
+
+	public String getRoleId() {
+		return RoleId;
+	}
+
+	public void setRoleId(String roleId) {
+		RoleId = roleId;
+	}
+
+	public void setUserId(Long userId) {
+		UserId = userId;
+	}
+
+	public String getUsername() {
+		return Username;
+	}
+
+	public void setUsername(String username) {
+		Username = username;
+	}
+
+	public String getEmail() {
+		return Email;
+	}
+
+	public void setEmail(String email) {
+		Email = email;
+	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+	
+}

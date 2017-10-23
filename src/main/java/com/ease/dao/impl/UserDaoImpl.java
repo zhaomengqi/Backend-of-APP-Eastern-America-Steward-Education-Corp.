@@ -1,0 +1,76 @@
+package com.ease.dao.impl;
+
+import java.util.List;
+
+import com.ease.doa.UserDao;
+import com.ease.model.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository("userDao")
+public class UserDaoImpl implements UserDao {
+
+	@Autowired
+	SessionFactory sessionFactory;
+	protected Session currentSession(){
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	public void create(User user) {
+		
+		currentSession().save(user);
+	}
+
+	@Override
+	public void update(User user) {
+		currentSession().update(user);
+	}
+
+	@Override
+	public User edit(Long userId) {
+		return find(userId);
+	}
+
+	@Override
+	public void delete(Long userId) {
+		Session session ;
+	    User user ;
+
+	    session = sessionFactory.getCurrentSession();
+	    //session.delete(userId);
+	    user = (User)session.load(User.class,userId);
+	    session.delete(user);
+	    session.flush() ;
+
+	}
+
+	@Override
+	public User find(Long userId) {
+		return (User)currentSession().get(User.class,userId);
+	}
+	
+
+	
+	@SuppressWarnings({ "unchecked", "deprecation" })
+	@Override
+	public List<User> getAll() {
+		 return currentSession().createCriteria(User.class).list();
+	}
+
+	@Override
+	public List<User> findRole(){
+		String hql = "from User where 1=1";
+            hql=hql+" and RoleId='"+1+"'";
+            Query query = sessionFactory.getCurrentSession().createQuery(hql);
+            @SuppressWarnings("deprecation")
+			List<User> list=query.list();
+            return list;
+	}
+	
+	
+}
+

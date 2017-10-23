@@ -1,0 +1,534 @@
+package com.ease.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
+public class ApplyHost {
+	@Id
+	private Long hostFormId;	
+	private String hostFormRole;
+	private Long keyValue;
+	private String firstName;
+	private String middleName;
+	private String lastName;	
+	private String title;
+	private String age;
+	private String maritalStatus;
+	private String occupation;	
+	private String cellphone;
+	private String email;
+	private String wayOfService;
+	private String country;	
+	private String address;
+	private String city;
+	private String state;
+	private String zipCode;	
+	private String hosptial;
+	private String supermarket;
+	private String highschool;
+	private String subwayStation;	
+	private String university;
+	private String busStation;	
+	private String familyMember1;
+	private String age1;
+	private String sex1;
+	private String occupation1;	
+	private String familyMember2;
+	private String age2;	
+	private String sex2;
+	private String occupation2;
+	private String familyMember3;
+	private String age3;	
+	private String sex3;
+	private String occupation3;	
+	private String hostMembers;
+	private String introducation;
+	private String preferhost;
+	private String religious;	
+	private String pets;
+	private String housePicture;	
+	private String personPicture;
+	private String drawingroomPicture;
+	private String kitchenPicture;
+	private String bothroomPicture;	
+	private String bedroomPicture1_1;
+	private String bedroomPicture1_2;	
+	private String P1ShortTermStartTime;
+	private String P1ShortTermLeftTime;
+	private String P1LongTermStartTime;
+	private String P1LongTermLeftTime;
+	private String P1Price;
+	private String bedroomPicture2_1;
+	private String bedroomPicture2_2;
+	private String P2ShortTermStartTime;
+	private String P2ShortTermLeftTime;
+	private String P2LongTermStartTime;
+	private String P2LongTermLeftTime;
+	private String P2Price;
+	private String bedroomPicture3_1;
+	private String bedroomPicture3_2;	
+	private String P3ShortTermStartTime;
+	private String P3ShortTermLeftTime;
+	private String P3LongTermStartTime;
+	private String P3LongTermLeftTime;
+	private String P3Price;
+	private String bedroomPicture4_1;
+	private String bedroomPicture4_2;
+	private String P4ShortTermStartTime;
+	private String P4ShortTermLeftTime;
+	private String P4LongTermStartTime;
+	private String P4LongTermLeftTime;
+	private String P4Price;
+	
+	public String getP1Price() {
+		return P1Price;
+	}
+	public void setP1Price(String p1Price) {
+		P1Price = p1Price;
+	}
+	public String getP2Price() {
+		return P2Price;
+	}
+	public void setP2Price(String p2Price) {
+		P2Price = p2Price;
+	}
+	public String getP3Price() {
+		return P3Price;
+	}
+	public void setP3Price(String p3Price) {
+		P3Price = p3Price;
+	}
+	public String getP4Price() {
+		return P4Price;
+	}
+	public void setP4Price(String p4Price) {
+		P4Price = p4Price;
+	}
+	public Long getHostFormId() {
+		return hostFormId;
+	}
+	public void setHostFormId(Long hostFormId) {
+		this.hostFormId = hostFormId;
+	}
+	public String getHostFormRole() {
+		return hostFormRole;
+	}
+	public void setHostFormRole(String hostFormRole) {
+		this.hostFormRole = hostFormRole;
+	}
+	
+	
+	
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getMiddleName() {
+		return middleName;
+	}
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+	public String getOccupation() {
+		return occupation;
+	}
+	public void setOccupation(String occupation) {
+		this.occupation = occupation;
+	}
+	public String getCellphone() {
+		return cellphone;
+	}
+	public void setCellphone(String cellphone) {
+		this.cellphone = cellphone;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getWayOfService() {
+		return wayOfService;
+	}
+	public void setWayOfService(String wayOfService) {
+		this.wayOfService = wayOfService;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
+	}
+	public String getZipCode() {
+		return zipCode;
+	}
+	public void setZipCode(String zipCode) {
+		this.zipCode = zipCode;
+	}
+	public String getHosptial() {
+		return hosptial;
+	}
+	public void setHosptial(String hosptial) {
+		this.hosptial = hosptial;
+	}
+	public String getSupermarket() {
+		return supermarket;
+	}
+	public void setSupermarket(String supermarket) {
+		this.supermarket = supermarket;
+	}
+	public String getHighschool() {
+		return highschool;
+	}
+	public void setHighschool(String highschool) {
+		this.highschool = highschool;
+	}
+	public String getSubwayStation() {
+		return subwayStation;
+	}
+	public void setSubwayStation(String subwayStation) {
+		this.subwayStation = subwayStation;
+	}
+	public String getUniversity() {
+		return university;
+	}
+	public void setUniversity(String university) {
+		this.university = university;
+	}
+	public String getBusStation() {
+		return busStation;
+	}
+	public void setBusStation(String busStation) {
+		this.busStation = busStation;
+	}
+	public String getFamilyMember1() {
+		return familyMember1;
+	}
+	public void setFamilyMember1(String familyMember1) {
+		this.familyMember1 = familyMember1;
+	}
+	public String getAge1() {
+		return age1;
+	}
+	public void setAge1(String age1) {
+		this.age1 = age1;
+	}
+	public String getSex1() {
+		return sex1;
+	}
+	public void setSex1(String sex1) {
+		this.sex1 = sex1;
+	}
+	public String getOccupation1() {
+		return occupation1;
+	}
+	public void setOccupation1(String occupation1) {
+		this.occupation1 = occupation1;
+	}
+	public String getFamilyMember2() {
+		return familyMember2;
+	}
+	public void setFamilyMember2(String familyMember2) {
+		this.familyMember2 = familyMember2;
+	}
+	public String getAge2() {
+		return age2;
+	}
+	public void setAge2(String age2) {
+		this.age2 = age2;
+	}
+	public String getSex2() {
+		return sex2;
+	}
+	public void setSex2(String sex2) {
+		this.sex2 = sex2;
+	}
+	public String getOccupation2() {
+		return occupation2;
+	}
+	public void setOccupation2(String occupation2) {
+		this.occupation2 = occupation2;
+	}
+	public String getFamilyMember3() {
+		return familyMember3;
+	}
+	public void setFamilyMember3(String familyMember3) {
+		this.familyMember3 = familyMember3;
+	}
+	public String getAge3() {
+		return age3;
+	}
+	public void setAge3(String age3) {
+		this.age3 = age3;
+	}
+	public String getSex3() {
+		return sex3;
+	}
+	public void setSex3(String sex3) {
+		this.sex3 = sex3;
+	}
+	public String getOccupation3() {
+		return occupation3;
+	}
+	public void setOccupation3(String occupation3) {
+		this.occupation3 = occupation3;
+	}
+	public String getHostMembers() {
+		return hostMembers;
+	}
+	public void setHostMembers(String hostMembers) {
+		this.hostMembers = hostMembers;
+	}
+	public String getIntroducation() {
+		return introducation;
+	}
+	public void setIntroducation(String introducation) {
+		this.introducation = introducation;
+	}
+	public String getPreferhost() {
+		return preferhost;
+	}
+	public void setPreferhost(String preferhost) {
+		this.preferhost = preferhost;
+	}
+	public String getReligious() {
+		return religious;
+	}
+	public void setReligious(String religious) {
+		this.religious = religious;
+	}
+	public String getPets() {
+		return pets;
+	}
+	public void setPets(String pets) {
+		this.pets = pets;
+	}
+	public String getHousePicture() {
+		return housePicture;
+	}
+	public void setHousePicture(String housePicture) {
+		this.housePicture = housePicture;
+	}
+	public String getPersonPicture() {
+		return personPicture;
+	}
+	public void setPersonPicture(String personPicture) {
+		this.personPicture = personPicture;
+	}
+	public String getDrawingroomPicture() {
+		return drawingroomPicture;
+	}
+	public void setDrawingroomPicture(String drawingroomPicture) {
+		this.drawingroomPicture = drawingroomPicture;
+	}
+	public String getKitchenPicture() {
+		return kitchenPicture;
+	}
+	public void setKitchenPicture(String kitchenPicture) {
+		this.kitchenPicture = kitchenPicture;
+	}
+	public String getBothroomPicture() {
+		return bothroomPicture;
+	}
+	public void setBothroomPicture(String bothroomPicture) {
+		this.bothroomPicture = bothroomPicture;
+	}
+	public String getBedroomPicture1_1() {
+		return bedroomPicture1_1;
+	}
+	public void setBedroomPicture1_1(String bedroomPicture1_1) {
+		this.bedroomPicture1_1 = bedroomPicture1_1;
+	}
+	public String getBedroomPicture1_2() {
+		return bedroomPicture1_2;
+	}
+	public void setBedroomPicture1_2(String bedroomPicture1_2) {
+		this.bedroomPicture1_2 = bedroomPicture1_2;
+	}
+	public String getBedroomPicture2_1() {
+		return bedroomPicture2_1;
+	}
+	public void setBedroomPicture2_1(String bedroomPicture2_1) {
+		this.bedroomPicture2_1 = bedroomPicture2_1;
+	}
+	public String getBedroomPicture2_2() {
+		return bedroomPicture2_2;
+	}
+	public void setBedroomPicture2_2(String bedroomPicture2_2) {
+		this.bedroomPicture2_2 = bedroomPicture2_2;
+	}
+	public String getBedroomPicture3_1() {
+		return bedroomPicture3_1;
+	}
+	public void setBedroomPicture3_1(String bedroomPicture3_1) {
+		this.bedroomPicture3_1 = bedroomPicture3_1;
+	}
+	public String getBedroomPicture3_2() {
+		return bedroomPicture3_2;
+	}
+	public void setBedroomPicture3_2(String bedroomPicture3_2) {
+		this.bedroomPicture3_2 = bedroomPicture3_2;
+	}
+	public String getBedroomPicture4_1() {
+		return bedroomPicture4_1;
+	}
+	public void setBedroomPicture4_1(String bedroomPicture4_1) {
+		this.bedroomPicture4_1 = bedroomPicture4_1;
+	}
+	public String getBedroomPicture4_2() {
+		return bedroomPicture4_2;
+	}
+	public void setBedroomPicture4_2(String bedroomPicture4_2) {
+		this.bedroomPicture4_2 = bedroomPicture4_2;
+	}
+	public String getP1ShortTermStartTime() {
+		return P1ShortTermStartTime;
+	}
+	public void setP1ShortTermStartTime(String p1ShortTermStartTime) {
+		P1ShortTermStartTime = p1ShortTermStartTime;
+	}
+	public String getP1ShortTermLeftTime() {
+		return P1ShortTermLeftTime;
+	}
+	public void setP1ShortTermLeftTime(String p1ShortTermLeftTime) {
+		P1ShortTermLeftTime = p1ShortTermLeftTime;
+	}
+	public String getP1LongTermStartTime() {
+		return P1LongTermStartTime;
+	}
+	public void setP1LongTermStartTime(String p1LongTermStartTime) {
+		P1LongTermStartTime = p1LongTermStartTime;
+	}
+	public String getP1LongTermLeftTime() {
+		return P1LongTermLeftTime;
+	}
+	public void setP1LongTermLeftTime(String p1LongTermLeftTime) {
+		P1LongTermLeftTime = p1LongTermLeftTime;
+	}
+	public String getP2ShortTermStartTime() {
+		return P2ShortTermStartTime;
+	}
+	public void setP2ShortTermStartTime(String p2ShortTermStartTime) {
+		P2ShortTermStartTime = p2ShortTermStartTime;
+	}
+	public String getP2ShortTermLeftTime() {
+		return P2ShortTermLeftTime;
+	}
+	public void setP2ShortTermLeftTime(String p2ShortTermLeftTime) {
+		P2ShortTermLeftTime = p2ShortTermLeftTime;
+	}
+	public String getP2LongTermStartTime() {
+		return P2LongTermStartTime;
+	}
+	public void setP2LongTermStartTime(String p2LongTermStartTime) {
+		P2LongTermStartTime = p2LongTermStartTime;
+	}
+	public String getP2LongTermLeftTime() {
+		return P2LongTermLeftTime;
+	}
+	public void setP2LongTermLeftTime(String p2LongTermLeftTime) {
+		P2LongTermLeftTime = p2LongTermLeftTime;
+	}
+	public String getP3ShortTermStartTime() {
+		return P3ShortTermStartTime;
+	}
+	public void setP3ShortTermStartTime(String p3ShortTermStartTime) {
+		P3ShortTermStartTime = p3ShortTermStartTime;
+	}
+	public String getP3ShortTermLeftTime() {
+		return P3ShortTermLeftTime;
+	}
+	public void setP3ShortTermLeftTime(String p3ShortTermLeftTime) {
+		P3ShortTermLeftTime = p3ShortTermLeftTime;
+	}
+	public String getP3LongTermStartTime() {
+		return P3LongTermStartTime;
+	}
+	public void setP3LongTermStartTime(String p3LongTermStartTime) {
+		P3LongTermStartTime = p3LongTermStartTime;
+	}
+	public String getP3LongTermLeftTime() {
+		return P3LongTermLeftTime;
+	}
+	public void setP3LongTermLeftTime(String p3LongTermLeftTime) {
+		P3LongTermLeftTime = p3LongTermLeftTime;
+	}
+	public String getP4ShortTermStartTime() {
+		return P4ShortTermStartTime;
+	}
+	public void setP4ShortTermStartTime(String p4ShortTermStartTime) {
+		P4ShortTermStartTime = p4ShortTermStartTime;
+	}
+	public String getP4ShortTermLeftTime() {
+		return P4ShortTermLeftTime;
+	}
+	public void setP4ShortTermLeftTime(String p4ShortTermLeftTime) {
+		P4ShortTermLeftTime = p4ShortTermLeftTime;
+	}
+	public String getP4LongTermStartTime() {
+		return P4LongTermStartTime;
+	}
+	public void setP4LongTermStartTime(String p4LongTermStartTime) {
+		P4LongTermStartTime = p4LongTermStartTime;
+	}
+	public String getP4LongTermLeftTime() {
+		return P4LongTermLeftTime;
+	}
+	public void setP4LongTermLeftTime(String p4LongTermLeftTime) {
+		P4LongTermLeftTime = p4LongTermLeftTime;
+	}
+	public Long getKeyValue() {
+		return keyValue;
+	}
+	public void setKeyValue(Long keyValue) {
+		this.keyValue = keyValue;
+	}
+	
+}

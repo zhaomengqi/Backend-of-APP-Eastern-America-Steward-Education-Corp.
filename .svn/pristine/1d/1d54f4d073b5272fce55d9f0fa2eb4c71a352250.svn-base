@@ -1,0 +1,156 @@
+package com.ease.controller;
+
+import java.util.Date;
+import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.ease.model.HostForm;
+import com.ease.servic.ApplyHostServic;
+import com.ease.servic.HostFormServic;
+
+@Controller
+@RequestMapping("/form")
+public class HostFormController {
+	
+	@Autowired
+	HostFormServic hostformService;
+	@Autowired
+	ApplyHostServic applyHostServic;
+	
+
+	@RequestMapping(value="/host1",method={RequestMethod.GET,RequestMethod.POST}) 
+	public @ResponseBody HostForm Upload1(@RequestBody HostForm hostform,Map<String,Object> map){
+		hostform.setHostFormRole("0");
+		
+		//set value in keyValue with time and random number
+		Date date = new Date();
+		Long m=date.getTime();
+        Double time=Math.random()*1000;
+        long l = new Double(time).longValue();
+	    System.out.println(date);
+	    System.out.println(m+l);
+	    hostform.setKeyValue(m+l);
+	    
+	    hostformService.create(hostform);
+	    
+		return hostform;
+	}
+	
+	@RequestMapping(value="/host2",method={RequestMethod.GET,RequestMethod.POST}) 
+	public @ResponseBody HostForm Upload2 (@RequestBody HostForm hostform,Map<String,Object> map){
+		hostform.setHostFormRole("1");
+		hostformService.create(hostform);
+		System.out.println("5page");
+		
+		return hostform;
+	}
+	
+	//天一，后管系统的住家申请列表url
+	@RequestMapping(value="/apply",method=RequestMethod.GET)
+	public String apply(Map<String,Object> map){
+		map.put("applyHostList",applyHostServic.findRole());
+		return "form/apply";
+	}
+	
+	@RequestMapping(value = "/details/{hostFormId}",method=RequestMethod.GET)
+	public String details(@PathVariable("hostFormId") Long hostFormId,Map<String,Object> map){
+		HostForm hosti = hostformService.find(hostFormId);
+		map.put("HostFormId", hosti.getHostFormId());
+		map.put("HostFormRole", hosti.getHostFormRole());
+		map.put("KeyValue", hosti.getKeyValue());
+		map.put("FirstName", hosti.getFirstName());
+		map.put("MiddleName", hosti.getMiddleName());
+		map.put("LastName", hosti.getLastName());
+		map.put("Title", hosti.getTitle());
+		map.put("Age", hosti.getAge());
+		map.put("MaritalStatus", hosti.getMaritalStatus());
+		map.put("Occupation", hosti.getOccupation());
+		map.put("Cellphone", hosti.getCellphone());
+		map.put("Email", hosti.getEmail());
+		map.put("WayOfService", hosti.getWayOfService());
+		map.put("Country", hosti.getCountry());
+		map.put("Address", hosti.getAddress());
+		map.put("City", hosti.getCity());
+		map.put("State", hosti.getState());
+		map.put("ZipCode", hosti.getZipCode());
+		map.put("Hosptial", hosti.getHosptial());
+		map.put("Supermarket", hosti.getSupermarket());
+		map.put("Highschool", hosti.getHighschool());
+		map.put("SubwayStation", hosti.getSubwayStation());
+		map.put("University", hosti.getUniversity());
+		map.put("BusStation", hosti.getBusStation());
+		map.put("FamilyMember1", hosti.getFamilyMember1());
+		map.put("Age1", hosti.getAge1());
+		map.put("Sex1", hosti.getSex1());
+		map.put("Occupation1", hosti.getOccupation1());
+		map.put("FamilyMember2", hosti.getFamilyMember2());
+		map.put("Age2", hosti.getAge2());
+		map.put("Sex2", hosti.getSex2());
+		map.put("Occupation2", hosti.getOccupation2());
+		map.put("FamilyMember3", hosti.getFamilyMember3());
+		map.put("Age3", hosti.getAge3());
+		map.put("Sex3", hosti.getSex3());
+		map.put("Occupation3", hosti.getOccupation3());
+		map.put("Introducation", hosti.getIntroducation());
+		map.put("Preferhost", hosti.getPreferhost());
+		map.put("Religious", hosti.getReligious());
+		map.put("Pets", hosti.getPets());
+		map.put("PersonPicture", hosti.getPersonPicture());
+		map.put("DrawingroomPicture", hosti.getDrawingroomPicture());
+		map.put("KitchenPicture", hosti.getKitchenPicture());
+		map.put("BothroomPicture", hosti.getBothroomPicture());
+		map.put("BedroomPicture1_1", hosti.getBedroomPicture1_1());
+		map.put("BedroomPicture1_2", hosti.getBedroomPicture1_2());
+		map.put("P1ShortTermStartTime", hosti.getP1ShortTermStartTime());
+		map.put("P1ShortTermLeftTime", hosti.getP1ShortTermLeftTime());
+		map.put("P1LongTermStartTime", hosti.getP1LongTermStartTime());
+		map.put("P1LongTermLeftTime", hosti.getP1LongTermLeftTime());
+		map.put("BedroomPicture2_1", hosti.getBedroomPicture2_1());
+		map.put("BedroomPicture2_2", hosti.getBedroomPicture2_2());
+		map.put("P2ShortTermStartTime", hosti.getP2ShortTermStartTime());
+		map.put("P2ShortTermLeftTime", hosti.getP2ShortTermLeftTime());
+		map.put("P2LongTermStartTime", hosti.getP2LongTermStartTime());
+		map.put("P2LongTermLeftTime", hosti.getP2LongTermLeftTime());
+		map.put("BedroomPicture3_1", hosti.getBedroomPicture3_1());
+		map.put("BedroomPicture3_2", hosti.getBedroomPicture3_2());
+		map.put("P3ShortTermStartTime", hosti.getP3ShortTermStartTime());
+		map.put("P3ShortTermLeftTime", hosti.getP3ShortTermLeftTime());
+		map.put("P3LongTermStartTime", hosti.getP3LongTermStartTime());
+		map.put("P3LongTermLeftTime", hosti.getP3LongTermLeftTime());
+		map.put("BedroomPicture4_1", hosti.getBedroomPicture4_1());
+		map.put("BedroomPicture4_2", hosti.getBedroomPicture4_2());
+		map.put("P4ShortTermStartTime", hosti.getP4ShortTermStartTime());
+		map.put("P4ShortTermLeftTime", hosti.getP4ShortTermLeftTime());
+		map.put("P4LongTermStartTime", hosti.getP4LongTermStartTime());
+		map.put("P4LongTermLeftTime", hosti.getP4LongTermLeftTime());
+		return "form/details";
+		
+	}
+	
+	@RequestMapping(value="/reject/{hostFormId}",method=RequestMethod.GET)
+	public String reject(@PathVariable("hostFormId") Long hostFormId, Map<String,Object> map){
+		
+		HostForm host = hostformService.find(hostFormId);
+		host.setHostFormRole("2");
+		hostformService.update(host);
+		applyHostServic.delete(hostFormId);
+		return "redirect:/form/apply";
+	}
+	
+	@RequestMapping(value="/authorize/{hostFormId}",method=RequestMethod.GET)
+	public String authorize(@PathVariable("hostFormId") Long hostFormId, Map<String,Object> map){
+		
+		HostForm host = hostformService.find(hostFormId);
+		host.setHostFormRole("3");
+		hostformService.update(host);
+		applyHostServic.delete(hostFormId);
+		return "redirect:/form/apply";
+	}
+	
+	///
+}

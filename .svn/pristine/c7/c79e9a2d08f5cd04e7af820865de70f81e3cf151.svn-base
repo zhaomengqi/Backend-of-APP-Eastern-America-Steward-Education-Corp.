@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+    <class name="com.ease.model.User" table="User">
+        <id name="UserId" type="java.lang.Integer">
+            <column name="UserId"/>
+            <generator class="increment"/>
+        </id>
+        <!-- 配置序号，即主键的 -->
+        
+        <!-- 配置其他项 -->
+        <property name="Username" type="java.lang.String">
+            <column name="Username" length="30" not-null="true">
+            </column>
+        </property>
+        
+       <property name="Password" type="java.lang.String">
+            <column name="Password" length="30" not-null="true">
+            </column>
+        </property>
+        
+        
+         <property name="Email" type="java.lang.String">
+            <column name="Email" length="30" not-null="true">
+            </column>
+        </property>
+                
+        <property name="RoleId" type="java.lang.String">
+            <column name="RoleId" length="30" not-null="true">
+            </column>
+        </property>
+        <!-- 配置一对多 -->
+         <set name="student" table="student">
+            <key column="gid"></key>
+            <one-to-many class="com.ease.model.xxx"></one-to-many>
+         </set>    
+    </class>
+    
+    
+    
+</hibernate-mapping>
